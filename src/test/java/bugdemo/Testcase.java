@@ -1,13 +1,13 @@
 package bugdemo;
 
-import org.eclipse.persistence.jaxb.JAXBContext;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLOutputFactory;
@@ -101,7 +101,7 @@ public class Testcase
 
 	private Marshaller getMarshaller(Class<?> clazz) throws JAXBException
 	{
-		final javax.xml.bind.JAXBContext ctx = JAXBContext.newInstance(clazz);
+		JAXBContext ctx = JAXBContext.newInstance(clazz);
 
 		return ctx.createMarshaller();
 	}
